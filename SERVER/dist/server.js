@@ -11,7 +11,7 @@ const dbConnection_1 = require("./config/dbConnection");
 const app = (0, express_1.default)();
 (0, dbConnection_1.connectDB)();
 const corsOptions = {
-    origin: `http://localhost:${developmentVariables_1.devConfig.PORT}`
+    origin: `http://localhost:3000`
 };
 app.use((0, cors_1.default)(corsOptions));
 app.use(express_1.default.json());

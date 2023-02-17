@@ -1,0 +1,12 @@
+.container {
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1rem;
+}
+
+.wrapper {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
