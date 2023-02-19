@@ -2,7 +2,7 @@ import React from 'react'
 
 import SingleEvent from './SingleEvent'
 
-import { ILoadedEventsList } from '../additionals/events.interfaces'
+import { ILoadedEventsList } from '../utils/interfaces/events.interfaces'
 
 import classes from "./EventsList.module.css"
 
