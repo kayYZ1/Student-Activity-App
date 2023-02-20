@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import axios from "axios"
 
-import Spinner from '../components/additionals/Spinner'
+import Spinner from '../components/utils/Spinner'
 import EventsList from '../components/activities/EventsList'
 
-import { ILoadedEvents } from '../components/additionals/events.interfaces'
+import { ILoadedEvents } from '../components/utils/interfaces/events.interfaces'
 
 
 type Props = {}
