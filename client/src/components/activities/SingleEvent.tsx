@@ -31,7 +31,7 @@ const SingleEvent = (props: Props) => {
                         </div> :
                         <div>
                             <h4> {props.date} | {props.hour} </h4>
-                            <p className={classes.eventDescription} > {props.description}</p >
+                            <p className={classes.eventDescription}> {props.description}</p>
                             <button className={classes.eventBtn}>I want to participate</button>
                         </div>}
                 </div>

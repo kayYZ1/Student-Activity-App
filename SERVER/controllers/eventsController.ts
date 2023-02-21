@@ -29,3 +29,4 @@ export const viewEvents: RequestHandler = async (req, res, next) => {
         res.status(500).send({ message: "Internal Error, could not fulfill the request" })
     }
 }
+
