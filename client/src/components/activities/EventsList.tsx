@@ -12,8 +12,8 @@ const EventsList = (props: ILoadedEventsList) => {
       <ul className={classes.events}>
           {props.events.map(event => 
               <SingleEvent
-                  key={event.id}
-                  id={event.id}
+                  key={event._id}
+                  _id={event._id}
                   image={event.image} 
                   title={event.title} 
                   address={event.address} 

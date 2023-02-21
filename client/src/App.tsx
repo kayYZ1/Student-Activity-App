@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom"
 
 import ViewEvents from './pages/ViewEvents'
 import NewEvent from './pages/NewEvent'
-import ParticipatingEvents from './pages/ParticipatingEvents'
+import MarkedEvents from './pages/MarkedEvents'
 
 import Layout from "./layouts/Layout"
 
@@ -15,7 +15,7 @@ const App = (props: Props) => {
 		<Routes>
 			<Route path="/" element= {<ViewEvents/>} />
 			<Route path="/newEvent" element= {<NewEvent/>} />
-			<Route path="/participatingEvents" element= {<ParticipatingEvents />} />
+			<Route path="/markedEvents" element= {<MarkedEvents />} />
 		</Routes>
 	</Layout>
   )

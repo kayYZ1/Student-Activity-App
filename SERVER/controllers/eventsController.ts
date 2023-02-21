@@ -16,7 +16,7 @@ export const addEvent: RequestHandler = (req, res, next) => {
         if (err) {
             res.status(500).send({ message: "Could not save data into the database" })
         } else {
-            res.status(201).send({ message: `Event of id:${event.id} added to the database` })
+            res.status(201).send({ message: `Event of id:${event._id} added to the database` })
         }
     })
 }

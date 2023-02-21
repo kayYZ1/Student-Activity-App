@@ -1,9 +1,11 @@
-import React from 'react'
+import { useContext } from 'react'
+
+import markedEventsContext from '../../store/markedEventsContext'
 
 import classes from "./SingleEvent.module.css"
 
 type Props = {
-    id: string,
+    _id: string,
     image: string,
     title: string,
     address: string,
@@ -13,6 +15,28 @@ type Props = {
 }
 
 const SingleEvent = (props: Props) => {
+    console.log(props)
+    const markedEventsCtx = useContext(markedEventsContext)
+
+    const markedEvent = markedEventsCtx.eventIsMarked(props._id)
+
+    const toggleMarkedHandler = () => {
+        if (markedEvent) {
+            markedEventsCtx.removeMarked(props._id)
+        }
+        else {
+            markedEventsCtx.addMarked({
+                _id: props._id,
+                image: props.image,
+                title: props.title,
+                address: props.address,
+                description: props.description,
+                hour: props.hour,
+                date: props.date
+            })
+        }
+    }
+
     const systemDate = new Date().toISOString();
     return (
         <div className={classes.eventItem}>
@@ -32,7 +56,7 @@ const SingleEvent = (props: Props) => {
                         <div>
                             <h4> {props.date} | {props.hour} </h4>
                             <p className={classes.eventDescription}> {props.description}</p>
-                            <button className={classes.eventBtn}>I want to participate</button>
+                            <button className={classes.eventBtn} onClick={toggleMarkedHandler}>{markedEvent ? "Remove from marked" : "Add to your marked list"}</button>
                         </div>}
                 </div>
             </div>
