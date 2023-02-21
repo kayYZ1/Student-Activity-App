@@ -10,7 +10,7 @@ const currDate = new Date().toISOString();
 const validationSchema = Yup.object().shape({
 	title: Yup.string().min(2, "Too short").max(15, "Too long").required(),
 	address: Yup.string().min(2, "Too short").max(50, "Too long").required(),
-	description: Yup.string().min(2, "Too short").max(30, "Too long").required(),
+	description: Yup.string().min(2, "Too short").max(80, "Too long").required(),
 	image: Yup.string().required().matches(/(https?:\/\/.*\.(?:png|jpg))/i, "Image url has to be valid."),
 	hour: Yup.string().required(),
 	date: Yup.date().required().min(currDate, "Date has to be valid")
