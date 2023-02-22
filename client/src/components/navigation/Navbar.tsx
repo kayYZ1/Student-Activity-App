@@ -42,7 +42,7 @@ const Navbar = (props: Props) => {
                         <Link to="/newEvent">Add new event</Link>
                     </li>
                     <li>
-                        <Link to="/participatingEvents">Selected events</Link>
+                        <Link to="/markedEvents">Marked Events</Link>
                     </li>
                 </ul>
             </div>

@@ -1,5 +1,5 @@
 export interface ILoadedEvents {
-    id: string,
+    _id: string,
     title: string,
     description: string,
     image: string,
@@ -19,4 +19,12 @@ export interface INewEventValues {
     address: string,
     hour: string,
     date: string
+}
+
+export interface IMarkedEventsContext {
+    marked: ILoadedEvents[],
+    numberOfMarked: number,
+    addMarked: any,
+	removeMarked: any,
+	eventIsMarked: any
 }

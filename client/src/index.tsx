@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import { MarkedEventsContextProvider } from './store/markedEventsContext';
 import { BrowserRouter as Router } from "react-router-dom"
 
 import './index.css';
@@ -10,9 +12,11 @@ const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 root.render(
-	<Router>
-		<App />
-	</Router>
+	<MarkedEventsContextProvider>
+		<Router>
+			<App />
+		</Router>
+	</MarkedEventsContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

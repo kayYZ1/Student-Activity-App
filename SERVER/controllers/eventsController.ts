@@ -16,14 +16,14 @@ export const addEvent: RequestHandler = (req, res, next) => {
         if (err) {
             res.status(500).send({ message: "Could not save data into the database" })
         } else {
-            res.status(201).send({ message: `Event of id:${event.id} added to the database` })
+            res.status(201).send({ message: `Event of id:${event._id} added to the database` })
         }
     })
 }
 
 export const viewEvents: RequestHandler = async (req, res, next) => {
     try {
-        const events = await Event.find().sort({ createdAt: -1 })
+        const events = await Event.find().sort({ date: -1 })
         res.status(200).send(events)
     } catch (error) {
         res.status(500).send({ message: "Internal Error, could not fulfill the request" })

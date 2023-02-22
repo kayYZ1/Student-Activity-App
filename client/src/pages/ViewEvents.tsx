@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import axios from "axios"
 
 import Spinner from '../components/utils/Spinner'
