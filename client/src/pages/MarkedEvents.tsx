@@ -13,7 +13,7 @@ const MarkedEvents = (props: Props) => {
         return (
             <Fragment>
                 <h1>Events that you're interested in...</h1>
-                <h3>Current number of marked events {markedEventCtx.numberOfMarked}</h3>
+                <h3>Current number of marked events: {markedEventCtx.numberOfMarked}</h3>
                 <EventsList events={markedEventCtx.marked}/>		
 		    </Fragment>
         )	

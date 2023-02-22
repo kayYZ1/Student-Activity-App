@@ -35,7 +35,7 @@ const addEvent = (req, res, next) => {
 exports.addEvent = addEvent;
 const viewEvents = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const events = yield eventModel_1.default.find().sort({ createdAt: -1 });
+        const events = yield eventModel_1.default.find().sort({ date: -1 });
         res.status(200).send(events);
     }
     catch (error) {

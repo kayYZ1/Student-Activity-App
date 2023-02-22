@@ -23,7 +23,7 @@ export const addEvent: RequestHandler = (req, res, next) => {
 
 export const viewEvents: RequestHandler = async (req, res, next) => {
     try {
-        const events = await Event.find().sort({ createdAt: -1 })
+        const events = await Event.find().sort({ date: -1 })
         res.status(200).send(events)
     } catch (error) {
         res.status(500).send({ message: "Internal Error, could not fulfill the request" })
