@@ -5,15 +5,15 @@ import * as Yup from 'yup';
 
 import classes from "./styles/NewEvent.module.css"
 
-const currDate = new Date().toISOString();
+const currDate = new Date().toISOString().split('T')[0];
 
 const validationSchema = Yup.object().shape({
-	title: Yup.string().min(2, "Too short").max(15, "Too long").required(),
+	title: Yup.string().min(2, "Too short").max(30, "Too long").required(),
 	address: Yup.string().min(2, "Too short").max(50, "Too long").required(),
 	description: Yup.string().min(2, "Too short").max(80, "Too long").required(),
-	image: Yup.string().required().matches(/(https?:\/\/.*\.(?:png|jpg))/i, "Image url has to be valid."),
+	image: Yup.string().required().matches(/(https?:\/\/.*\.(?:png|jpg))/i, "Url of the image need to have jpg/png extension."),
 	hour: Yup.string().required(),
-	date: Yup.date().required().min(currDate, "Date has to be valid")
+	date: Yup.date().required().min(currDate, "Date has to be greater than current date " + currDate)
 });
 
 const NewEvent = () => {
@@ -58,7 +58,7 @@ const NewEvent = () => {
 					<div>{formik.errors.description}</div>
 				) : null}
 
-				<input value={formik.values.image} name="image" onChange={formik.handleChange} type="url" placeholder="Url that points at image..." />
+				<input value={formik.values.image} name="image" onChange={formik.handleChange} type="url" placeholder="Url that points at the image..." />
 				{formik.errors.image && formik.touched.image ? (
 					<div>{formik.errors.image}</div>
 				) : null}
