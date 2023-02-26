@@ -9,7 +9,7 @@
 	}
 }
 
-@media (min-width: 56rem) {
+@media (min-width: 60rem) {
 	.eventItem {
 		width: 33.3333%;
 	}
