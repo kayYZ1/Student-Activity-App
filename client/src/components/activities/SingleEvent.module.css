@@ -33,7 +33,12 @@
 	font-size: 1.3rem;
 	font-weight: 700;
 	text-transform: capitalize;
-	margin: 0px;
+	margin-top: 10px;
+}
+
+.event:hover img,
+.event:focus img {
+	transform: scale(0.9);
 }
 
 .eventDescription {
@@ -70,8 +75,8 @@ h1 {
 }
 
 img {
-	height: 250px;
-	max-width: 100%;
+	width: 100%;
+	height: auto;
 	vertical-align: middle;
 }
 

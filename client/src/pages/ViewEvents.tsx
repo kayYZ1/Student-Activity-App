@@ -30,6 +30,7 @@ const ViewEvents = (props: Props) => {
 	return (
 		<Fragment>
 			<h1>Ongoing student's activites</h1>
+			<h3>You can choose the activities you want to currently keep track on, they will be added in the marked events page.</h3>
 			{loading ? <Spinner /> : <EventsList events={loadedEvents} />}
 		</Fragment>
 	)
