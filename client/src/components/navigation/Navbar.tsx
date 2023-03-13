@@ -12,6 +12,10 @@ const Navbar = (props: Props) => {
         setIsNavExpanded(!isNavExpanded)
     }
 
+    const linkHandler = () => {
+        setIsNavExpanded(false);
+    };
+
     return (
         <nav className={classes.navigation}>
             <a href="/" className={classes.brandName}>
@@ -27,13 +31,13 @@ const Navbar = (props: Props) => {
                 className={isNavExpanded ? [classes.navigationMenu, classes.expanded].join(' ') : classes.navigationMenu}>
                 <ul>
                     <li>
-                        <Link to="/">View current events</Link>
+                        <Link to="/" onClick={linkHandler}>View current events</Link>
                     </li>
                     <li>
-                        <Link to="/newEvent">Add new event</Link>
+                        <Link to="/newEvent" onClick={linkHandler}>Add new event</Link>
                     </li>
                     <li>
-                        <Link to="/markedEvents">Marked Events</Link>
+                        <Link to="/markedEvents" onClick={linkHandler}>Marked Events</Link>
                     </li>
                 </ul>
             </div>
