@@ -36,11 +36,6 @@
 	margin-top: 10px;
 }
 
-.event:hover img,
-.event:focus img {
-	transform: scale(0.9);
-}
-
 .eventDescription {
 	color: #000;
 	font-size: 0.875rem;
