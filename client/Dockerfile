@@ -1,10 +1,10 @@
 FROM node:19-alpine
 
 # Layer 2: Telling Docker to create a directory called `app` in the container and set it as the working directory.
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Layer 3: Copying the package.json file from the root of the project to the `app` directory in the container.
-COPY package.json .
+COPY ./package.json .
 
 # Layer 4: Installing the dependencies listed in the package.json file.
 RUN npm install

@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  saa_frontend:
+    image: saa_frontend
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - saa-app
+  saa_backend:
+    image: saa_backend
+    ports:
+      - "5000:5000"
+    networks:
+      - saa-app
+networks:
+  saa-app:
+    driver: bridge

@@ -1,11 +1,10 @@
 FROM node:19-alpine
 
-# We use nodemon to restart the server every time there's a change
-RUN npm install -g nodemon
+RUN npm install -g nodemon concurrently
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY package.json .
+COPY ./package.json .
 
 RUN npm install
 
