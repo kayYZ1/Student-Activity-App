@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # Layer 6: Telling Docker that the container will listen on port 3000.
-EXPOSE 3000
+EXPOSE 5173
 
 # Layer 7: Telling Docker to run the `npm start` command when the container is started.
 CMD ["npm", "start"]
