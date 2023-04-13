@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
 
-import classes from "./styles/NewEvent.module.css";
+import classes from "./styles/NewEvent.module.css"
 
 const currDate = new Date().toISOString().split("T")[0];
 
@@ -52,7 +52,7 @@ const NewEvent = () => {
   return (
     <div className={classes.newEventContainer}>
       <form onSubmit={formik.handleSubmit}>
-        <h2>Add a new student activity/event idk</h2>
+        <h2>Add a new student activity</h2>
         <input
           value={formik.values.title}
           name="title"
