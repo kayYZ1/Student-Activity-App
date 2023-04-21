@@ -1,4 +1,3 @@
-import React from 'react'
 import { Routes, Route } from "react-router-dom"
 
 import ViewEvents from './pages/ViewEvents'
@@ -7,9 +6,7 @@ import MarkedEvents from './pages/MarkedEvents'
 
 import Layout from "./layouts/Layout"
 
-type Props = {}
-
-const App = (props: Props) => {
+const App = () => {
   return (
 	<Layout>
 		<Routes>

@@ -1,4 +1,6 @@
-.newEventContainer {
+import styled from "styled-components"
+
+const NewEventContainer = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 500px;
@@ -9,9 +11,13 @@
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-}
+    @media (min-width: 768px) {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+`
 
-.newEventContainer h2 {
+const NewEventTitle = styled.h2`
     display: flex;
     flex-direction: column;
     background: #4D4D4D;
@@ -21,10 +27,9 @@
     font-weight: 100;
     padding: 20px;
     margin: -30px -30px 30px -30px;
-}
+`
 
-.newEventContainer input,
-.newEventContainer textarea {
+const Input = styled.input `
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -38,35 +43,26 @@
     margin-bottom: 10px;
     font: 16px Arial, Helvetica, sans-serif;
     height: 45px;
-}
+`
 
-.newEventContainer textarea {
+const TextArea = styled(Input)`
     resize: none;
     overflow: hidden;
-}
+`
 
-.addEventBtn {
+const Button = styled(Input)`
     background: linear-gradient(to bottom, #4D4D4D 5%, #4D4D4D 100%);
     background-color: #4D4D4D;
     border: 1px solid #4D4D4D;
     display: inline-block;
     cursor: pointer;
-    color: #000;
+    color: #fff;
     font-size: 14px;
     padding: 8px 18px;
     text-decoration: none;
     text-transform: uppercase;
-}
+`
 
-.addEventBtn:hover {
-    background: linear-gradient(to bottom, #4D4D4D 5%, #4D4D4D 100%);
-    background-color: #4D4D4D;
-    color: #fff;
-}
 
-@media (min-width: 768px) {
-    .newEventContainer {
-        flex-direction: row;
-        align-items: flex-end;
-    }
-}
+
+export { NewEventContainer, NewEventTitle, Input, TextArea, Button }

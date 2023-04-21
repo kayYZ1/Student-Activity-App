@@ -1,15 +1,13 @@
-import React from 'react'
-
 import SingleEvent from './SingleEvent'
 
-import { ILoadedEventsList } from '../utils/interfaces/events.interfaces'
+import { ILoadedEventsList } from "../../ts/interfaces/events.interfaces"
 
-import classes from "./EventsList.module.css"
+import { Events, ViewEvents } from "../../styles/events/components.style"
 
 const EventsList = (props: ILoadedEventsList) => {
   return (
-    <div className={classes.viewEventsMain}>
-      <ul className={classes.events}>
+    <ViewEvents>
+      <Events>
           {props.events.map(event => 
               <SingleEvent
                   key={event._id}
@@ -22,8 +20,8 @@ const EventsList = (props: ILoadedEventsList) => {
                   date={event.date}
               />
           )}
-      </ul>
-    </div>
+      </Events>
+    </ViewEvents>
   )
 }
 

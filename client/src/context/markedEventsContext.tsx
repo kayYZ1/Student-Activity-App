@@ -1,11 +1,11 @@
 import { createContext, useState } from 'react'
 
-import { IMarkedEventsContext } from '../components/utils/interfaces/events.interfaces'
-import { ILoadedEvents } from '../components/utils/interfaces/events.interfaces'
+//interfaces
+import { IMarkedEventsContext } from '../ts/interfaces/events.interfaces'
+import { ILoadedEvents } from '../ts/interfaces/events.interfaces'
 
-type Props = {
-    children: JSX.Element
-}
+//types
+import { ChildrenPropsType } from '../ts/types/childrenProps.types'
 
 const markedEventsContext = createContext<IMarkedEventsContext>({
     marked: [],
@@ -15,7 +15,7 @@ const markedEventsContext = createContext<IMarkedEventsContext>({
 	eventIsMarked: (eventId: string) => {}
 })
 
-export const MarkedEventsContextProvider = (props: Props) => {
+export const MarkedEventsContextProvider = (props: ChildrenPropsType) => {
     const [markedEvents, setMarkedEvents] = useState([])
 
     const addMarkedHandler = (markedEvent: IMarkedEventsContext) => {

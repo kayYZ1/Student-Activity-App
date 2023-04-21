@@ -1,11 +1,9 @@
 import { useContext, Fragment } from 'react'
 
-import markedEventsContext from '../store/markedEventsContext'
-import EventsList from '../components/activities/EventsList'
+import markedEventsContext from '../context/markedEventsContext'
+import EventsList from '../components/events/EventsList'
 
-type Props = {}
-
-const MarkedEvents = (props: Props) => {
+const MarkedEvents = () => {
     const markedEventCtx = useContext(markedEventsContext)
 
     if (markedEventCtx.numberOfMarked === 0) return <p>Nothing here yet</p>

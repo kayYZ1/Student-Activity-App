@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
 
-import classes from "./styles/NewEvent.module.css"
+import { NewEventContainer, NewEventTitle, Input, TextArea, Button } from "../styles/events/pages.style";
 
 const currDate = new Date().toISOString().split("T")[0];
 
@@ -50,10 +50,10 @@ const NewEvent = () => {
   });
 
   return (
-    <div className={classes.newEventContainer}>
+    <NewEventContainer>
       <form onSubmit={formik.handleSubmit}>
-        <h2>Add a new student activity</h2>
-        <input
+        <NewEventTitle>Add a new student activity</NewEventTitle>
+        <Input
           value={formik.values.title}
           name="title"
           onChange={formik.handleChange}
@@ -64,7 +64,7 @@ const NewEvent = () => {
           <div>{formik.errors.title}</div>
         ) : null}
 
-        <input
+        <Input
           value={formik.values.address}
           name="address"
           onChange={formik.handleChange}
@@ -75,7 +75,7 @@ const NewEvent = () => {
           <div>{formik.errors.address}</div>
         ) : null}
 
-        <input
+        <TextArea
           value={formik.values.description}
           name="description"
           onChange={formik.handleChange}
@@ -86,7 +86,7 @@ const NewEvent = () => {
           <div>{formik.errors.description}</div>
         ) : null}
 
-        <input
+        <Input
           value={formik.values.image}
           name="image"
           onChange={formik.handleChange}
@@ -97,7 +97,7 @@ const NewEvent = () => {
           <div>{formik.errors.image}</div>
         ) : null}
 
-        <input
+        <Input
           value={formik.values.hour}
           name="hour"
           onChange={formik.handleChange}
@@ -107,7 +107,7 @@ const NewEvent = () => {
           <div>{formik.errors.hour}</div>
         ) : null}
 
-        <input
+        <Input
           value={formik.values.date}
           name="date"
           onChange={formik.handleChange}
@@ -117,14 +117,13 @@ const NewEvent = () => {
           <div>{formik.errors.date}</div>
         ) : null}
 
-        <input
+        <Button
           type="submit"
           name="btn"
-          className={classes.addEventBtn}
           value="Add"
         />
       </form>
-    </div>
+    </NewEventContainer>
   );
 };
 

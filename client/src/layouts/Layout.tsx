@@ -1,21 +1,17 @@
-import React from 'react'
-
 import Navbar from '../components/navigation/Navbar'
 
-import classes from "./Layout.module.css"
+import { Container, Wrapper } from '../styles/layout.style'
 
-type Props = {
-    children: JSX.Element
-}
+import { ChildrenPropsType } from '../ts/types/childrenProps.types'
 
-const Layout = (props: Props) => {
+const Layout = (props: ChildrenPropsType) => {
   return (
-    <div className={classes.container}>
+    <Container>
       <Navbar />
-        <div className={classes.wrapper}>
+        <Wrapper>
             {props.children}
-        </div>
-    </div>
+        </Wrapper>
+    </Container>
   )
 }
 

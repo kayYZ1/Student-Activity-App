@@ -1,14 +1,12 @@
 import { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 
-import Spinner from "../components/utils/Spinner";
-import EventsList from "../components/activities/EventsList";
+import Spinner from "../utils/Spinner";
+import EventsList from "../components/events/EventsList";
 
-import { ILoadedEvents } from "../components/utils/interfaces/events.interfaces";
+import { ILoadedEvents } from "../ts/interfaces/events.interfaces";
 
-type Props = {};
-
-const ViewEvents = (props: Props) => {
+const ViewEvents = () => {
   const [loading, setLoading] = useState(false);
   const [loadedEvents, setLoadedEvents] = useState<ILoadedEvents[]>([]);
 

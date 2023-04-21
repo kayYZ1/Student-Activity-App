@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import { MarkedEventsContextProvider } from "./store/markedEventsContext";
+import { MarkedEventsContextProvider } from "./context/markedEventsContext";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import "./index.css";
