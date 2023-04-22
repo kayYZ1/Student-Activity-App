@@ -36,7 +36,7 @@ const Input = styled.input `
     outline: none;
     display: block;
     width: 100%;
-    padding: 7px;
+    padding: 5px;
     border: none;
     border-bottom: 1px solid #ddd;
     background: transparent;
@@ -63,6 +63,9 @@ const Button = styled(Input)`
     text-transform: uppercase;
 `
 
+const ErrorMessage = styled.div`
+    color: red;
+    padding: 15px;
+`
 
-
-export { NewEventContainer, NewEventTitle, Input, TextArea, Button }
+export { ErrorMessage, NewEventContainer, NewEventTitle, Input, TextArea, Button }

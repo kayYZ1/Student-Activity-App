@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
 
-import { NewEventContainer, NewEventTitle, Input, TextArea, Button } from "../styles/events/pages.style";
+import { ErrorMessage, NewEventContainer, NewEventTitle, Input, TextArea, Button } from "../styles/events/pages.style";
 
 const currDate = new Date().toISOString().split("T")[0];
 
@@ -61,7 +61,7 @@ const NewEvent = () => {
           placeholder="Short title..."
         />
         {formik.errors.title && formik.touched.title ? (
-          <div>{formik.errors.title}</div>
+          <ErrorMessage>{formik.errors.title}</ErrorMessage>
         ) : null}
 
         <Input
@@ -72,7 +72,7 @@ const NewEvent = () => {
           placeholder="Address..."
         />
         {formik.errors.address && formik.touched.address ? (
-          <div>{formik.errors.address}</div>
+          <ErrorMessage>{formik.errors.address}</ErrorMessage>
         ) : null}
 
         <TextArea
@@ -83,7 +83,7 @@ const NewEvent = () => {
           placeholder="Description..."
         />
         {formik.errors.description && formik.touched.description ? (
-          <div>{formik.errors.description}</div>
+          <ErrorMessage>{formik.errors.description}</ErrorMessage>
         ) : null}
 
         <Input
@@ -94,7 +94,7 @@ const NewEvent = () => {
           placeholder="Url that points at the image..."
         />
         {formik.errors.image && formik.touched.image ? (
-          <div>{formik.errors.image}</div>
+          <ErrorMessage>{formik.errors.image}</ErrorMessage>
         ) : null}
 
         <Input
@@ -104,7 +104,7 @@ const NewEvent = () => {
           type="time"
         />
         {formik.errors.hour && formik.touched.hour ? (
-          <div>{formik.errors.hour}</div>
+          <ErrorMessage>{formik.errors.hour}</ErrorMessage>
         ) : null}
 
         <Input
@@ -114,7 +114,7 @@ const NewEvent = () => {
           type="date"
         />
         {formik.errors.date && formik.touched.date ? (
-          <div>{formik.errors.date}</div>
+          <ErrorMessage>{formik.errors.date}</ErrorMessage>
         ) : null}
 
         <Button

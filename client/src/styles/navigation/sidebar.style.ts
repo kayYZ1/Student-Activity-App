@@ -56,6 +56,7 @@ const Row = styled.li`
   @media screen and (max-width: 768px) {
     text-align: center;
     margin: 0;
+    padding: 30px 0px 30px 0px;
     &:hover {
       background-color: #eee;
     }
