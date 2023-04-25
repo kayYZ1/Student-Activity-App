@@ -53,8 +53,7 @@ Install dependencies
  Start the services
 
 ```bash
-  npm start (client)
-  npm run dev (server)
+  npm run dev (on both)
 ```
 
 
