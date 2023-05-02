@@ -4,6 +4,7 @@ import axios from "axios";
 import * as Yup from "yup";
 
 import { ErrorMessage, NewEventContainer, NewEventTitle, Input, TextArea, Button } from "../styles/events/pages.style";
+import { INewEventValues } from "../ts/interfaces/events.interfaces";
 
 const currDate = new Date().toISOString().split("T")[0];
 
@@ -26,7 +27,7 @@ const validationSchema = Yup.object().shape({
 const NewEvent = () => {
   const navigate = useNavigate();
 
-  const formik = useFormik({
+  const formik = useFormik<INewEventValues>({
     initialValues: {
       title: "",
       address: "",
@@ -45,6 +46,7 @@ const NewEvent = () => {
         .catch(function (error) {
           console.log(error);
         });
+      console.log(values)
       navigate("/");
     },
   });
@@ -58,7 +60,7 @@ const NewEvent = () => {
           name="title"
           onChange={formik.handleChange}
           type="text"
-          placeholder="Short title..."
+          placeholder="Title"
         />
         {formik.errors.title && formik.touched.title ? (
           <ErrorMessage>{formik.errors.title}</ErrorMessage>
@@ -69,7 +71,7 @@ const NewEvent = () => {
           name="address"
           onChange={formik.handleChange}
           type="text"
-          placeholder="Address..."
+          placeholder="Address"
         />
         {formik.errors.address && formik.touched.address ? (
           <ErrorMessage>{formik.errors.address}</ErrorMessage>
@@ -80,7 +82,7 @@ const NewEvent = () => {
           name="description"
           onChange={formik.handleChange}
           type="text"
-          placeholder="Description..."
+          placeholder="Description"
         />
         {formik.errors.description && formik.touched.description ? (
           <ErrorMessage>{formik.errors.description}</ErrorMessage>
@@ -91,7 +93,7 @@ const NewEvent = () => {
           name="image"
           onChange={formik.handleChange}
           type="url"
-          placeholder="Url that points at the image..."
+          placeholder="Image Url"
         />
         {formik.errors.image && formik.touched.image ? (
           <ErrorMessage>{formik.errors.image}</ErrorMessage>
@@ -102,6 +104,7 @@ const NewEvent = () => {
           name="hour"
           onChange={formik.handleChange}
           type="time"
+          data-testId="meetingHour"
         />
         {formik.errors.hour && formik.touched.hour ? (
           <ErrorMessage>{formik.errors.hour}</ErrorMessage>
@@ -112,6 +115,7 @@ const NewEvent = () => {
           name="date"
           onChange={formik.handleChange}
           type="date"
+          data-testid="meetingDate"
         />
         {formik.errors.date && formik.touched.date ? (
           <ErrorMessage>{formik.errors.date}</ErrorMessage>
@@ -121,6 +125,7 @@ const NewEvent = () => {
           type="submit"
           name="btn"
           value="Add"
+          role="button"
         />
       </form>
     </NewEventContainer>

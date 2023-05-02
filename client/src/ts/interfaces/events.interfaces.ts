@@ -28,3 +28,7 @@ export interface IMarkedEventsContext {
 	removeMarked: any,
 	eventIsMarked: any
 }
+
+export interface INewEventFormSubmit {
+    onSubmit: (formValue: INewEventValues) => void;
+}
