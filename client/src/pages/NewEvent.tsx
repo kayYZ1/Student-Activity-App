@@ -104,7 +104,7 @@ const NewEvent = () => {
           name="hour"
           onChange={formik.handleChange}
           type="time"
-          data-testId="meetingHour"
+          data-testid="meetingHour"
         />
         {formik.errors.hour && formik.touched.hour ? (
           <ErrorMessage>{formik.errors.hour}</ErrorMessage>
