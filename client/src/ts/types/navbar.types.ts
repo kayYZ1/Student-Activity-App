@@ -1,6 +1,6 @@
 export type SideBarProps = {
     open: boolean | unknown;
-    setOpen: (open: boolean | unknown) => void;
+    setOpen: (open: boolean | any) => void;
 }
 
 export interface IBurgerProps {
