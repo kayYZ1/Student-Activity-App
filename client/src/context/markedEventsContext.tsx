@@ -1,52 +1,67 @@
-import { createContext, useState } from 'react'
+import { createContext, useState } from "react";
 
 //interfaces
-import { IMarkedEventsContext } from '../ts/interfaces/events.interfaces'
-import { ILoadedEvents } from '../ts/interfaces/events.interfaces'
+import { IMarkedEventsContext } from "../ts/interfaces/events.interfaces";
+import { ILoadedEvents } from "../ts/interfaces/events.interfaces";
 
 //types
-import { ChildrenPropsType } from '../ts/types/childrenProps.types'
+import { ChildrenPropsType } from "../ts/types/childrenProps.types";
 
 const markedEventsContext = createContext<IMarkedEventsContext>({
-    marked: [],
-    numberOfMarked: 0,
-    addMarked: (markedEvent: ILoadedEvents) => {},
-	removeMarked: (eventId: string) => {},
-	eventIsMarked: (eventId: string) => {}
-})
+  marked: [],
+  numberOfMarked: 0,
+  addMarked: (markedEvent: ILoadedEvents) => {},
+  removeMarked: (eventId: string) => {},
+  eventIsMarked: (eventId: string) => {},
+});
 
 export const MarkedEventsContextProvider = (props: ChildrenPropsType) => {
-    const [markedEvents, setMarkedEvents] = useState([])
+  const [markedEvents, setMarkedEvents] = useState([]);
 
-    const addMarkedHandler = (markedEvent: IMarkedEventsContext) => {
-        setMarkedEvents((prevMarkedEvent: any) => {
-            return prevMarkedEvent.concat(markedEvent)
-        })
-        return;
-    }
+  const markedEventsLocalStorage: any = localStorage.getItem("markedEvents");
+  const markedEventsLocalStorageParsed = markedEventsLocalStorage
+    ? JSON.parse(markedEventsLocalStorage)
+    : [];
 
-    const removeMarkedHandler = (eventId: string) => {
-        setMarkedEvents((prevMarkedEvent: any) => {
-            return prevMarkedEvent.filter((event: ILoadedEvents) => event._id !== eventId);
-        })
-    }
+  const addMarkedHandler = (markedEvent: IMarkedEventsContext) => {
+    setMarkedEvents((prevMarkedEvent: any) => {
+      const markedEventsList = prevMarkedEvent.concat(markedEvent);
+      localStorage.setItem("markedEvents", JSON.stringify(markedEventsList));
+      return markedEventsList;
+    });
+    return;
+  };
 
-    const eventIsMarkedHandler = (eventId: string) => {
-        return markedEvents.some((event: ILoadedEvents) => event._id === eventId)
-    }
+  const removeMarkedHandler = (eventId: string) => {
+    setMarkedEvents((prevMarkedEvent: any) => {
+      const newMarkedEventsList = prevMarkedEvent.filter(
+        (event: ILoadedEvents) => event._id !== eventId
+      );
+      localStorage.setItem("markedEvents", JSON.stringify(newMarkedEventsList));
+      return newMarkedEventsList;
+    });
+  };
 
-    const context = {
-        marked: markedEvents,
-        numberOfMarked: markedEvents.length,
-        addMarked: addMarkedHandler,
-        removeMarked: removeMarkedHandler,
-        eventIsMarked: eventIsMarkedHandler
-    }
-    return (
-        <markedEventsContext.Provider value={context}>
-            {props.children}
-        </markedEventsContext.Provider>
-    )
-}
+  const eventIsMarkedHandler = (eventId: string) => {
+    const markedEventsLocalStorage: any = localStorage.getItem("markedEvents");
+    const markedEventsLocalStorageParsed = JSON.parse(markedEventsLocalStorage);
+    return markedEventsLocalStorageParsed.some(
+      (event: ILoadedEvents) => event._id === eventId
+    );
+  };
 
-export default markedEventsContext
+  const context = {
+    marked: markedEventsLocalStorageParsed,
+    numberOfMarked: markedEventsLocalStorageParsed.length,
+    addMarked: addMarkedHandler,
+    removeMarked: removeMarkedHandler,
+    eventIsMarked: eventIsMarkedHandler,
+  };
+  return (
+    <markedEventsContext.Provider value={context}>
+      {props.children}
+    </markedEventsContext.Provider>
+  );
+};
+
+export default markedEventsContext;
