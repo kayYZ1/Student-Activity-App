@@ -44,7 +44,9 @@ export const MarkedEventsContextProvider = (props: ChildrenPropsType) => {
 
   const eventIsMarkedHandler = (eventId: string) => {
     const markedEventsLocalStorage: any = localStorage.getItem("markedEvents");
-    const markedEventsLocalStorageParsed = JSON.parse(markedEventsLocalStorage);
+    const markedEventsLocalStorageParsed = markedEventsLocalStorage
+    ? JSON.parse(markedEventsLocalStorage)
+    : [];
     return markedEventsLocalStorageParsed.some(
       (event: ILoadedEvents) => event._id === eventId
     );
